@@ -23,10 +23,13 @@ public class SimpleMath {
 	public Double div(Double numberOne, Double numberTwo) {
 		return numberOne/numberTwo;
 	}
-	public Double sqrt(Double numberOne) {
-		return Math.sqrt(numberOne);
+
+	public Double pow(Double number){
+		return number*number;
 	}
-	public Double avg(Double numberOne, Double numberTwo) {
-		return (numberOne+numberTwo)/2;
+
+	public Double rest(Double numberOne, Double numberTwo){
+		return numberOne%numberTwo;
 	}
+
 }

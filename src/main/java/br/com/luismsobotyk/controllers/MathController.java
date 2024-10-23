@@ -58,24 +58,24 @@ public class MathController {
 		}
 		return math.div(NumberConverter.convertToDouble(numberOne), NumberConverter.convertToDouble(numberTwo));
 	}
-	
-	@GetMapping("/avg/{numberOne}/{numberTwo}")
-	public Double avg(@PathVariable(value= "numberOne") String numberOne,
-			@PathVariable(value= "numberTwo") String numberTwo) throws Exception{
-		
+
+	@GetMapping("/pow/{numberOne}")
+	public Double pow(@PathVariable(value= "numberOne") String numberOne) throws Exception{
+
 		if(!NumberConverter.isNumeric(numberOne)) {
 			throw new UnsupportedMathOperationException("Please set a numeric value!");
 		}
-		return math.avg(NumberConverter.convertToDouble(numberOne), NumberConverter.convertToDouble(numberTwo));
+		return math.pow(NumberConverter.convertToDouble(numberOne));
 	}
-	
-	@GetMapping("/sqrt/{numberOne}")
-	public Double sqrt(@PathVariable(value= "numberOne") String numberOne) throws Exception{
-		
-		if(!NumberConverter.isNumeric(numberOne)) {
+
+	@GetMapping("/rest/{numberOne}/{numberTwo}")
+	public Double rest(@PathVariable(value= "numberOne") String numberOne,
+					   @PathVariable(value= "numberTwo") String numberTwo) throws Exception{
+
+		if(!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) {
 			throw new UnsupportedMathOperationException("Please set a numeric value!");
 		}
-		return math.sqrt(NumberConverter.convertToDouble(numberOne));
+		return math.rest(NumberConverter.convertToDouble(numberOne), NumberConverter.convertToDouble(numberTwo));
 	}
 
 	
